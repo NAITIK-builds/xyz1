@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sеnior Ꭺllоwance Cаrd For Sеniors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .breaking-news-bar {
+            background-color: #ef4444;
+            color: #fff;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .icon-left,
+        .icon-right {
+            font-size: 18px;
+        }
+
+        .agent-chat {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 85%;
+        }
+
+        .receiver-chat {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .typing-animation {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 4px;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #9ca3af;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+
+        .typing-dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        .flip-clock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .digit {
+            background-color: #e5e7eb;
+            color: #111827;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin: 0 3px;
+        }
+
+        .message {
+            margin-left: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message b {
+            font-size: 14px;
+            line-height: 1.2;
+        }
+
+        .message span {
+            font-size: 11px;
+            color: #4b5563;
+        }
+
+        .ttc-button {
+            display: inline-block;
+            text-align: center;
+            animation: pulse-btn 2s infinite;
+        }
+
+        @keyframes pulse-btn {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="breaking-news-bar">
+        <i class="fas fa-exclamation-circle icon-left"></i>
+        <span>LATEST NEWS: Sеnior Benefits Daily Update</span>
+        <i class="fas fa-clock icon-right"></i>
+    </div>
+
+    <main class="min-h-screen">
+        <div class="max-w-4xl mx-auto bg-white text-center">
+            <div class="w-full md:col-span-1 text-center block pt-4 pb-2">
+                <div class="text-xs flex items-center justify-center font-medium">
+                    <span class="relative flex h-3 w-3 inline-flex mr-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-green-500"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    Jennifer is Online.
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-md mx-auto bg-white px-2">
+            <div class="p-4">
+                <div class="space-y-4">
+                    <div class="chat-container pb-2">
+                        <div id="agentBlock1" class="flex items-end w-5/6">
+                            <div class="flex-shrink-0">
+                                <img class="w-8 h-8 rounded-full" src="images/agent.jpg?v1" alt="Sender Avatar">
+                            </div>
+                            <div class="ml-3 agent-chat">
+                                <div id="initTyping" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 inline-block">
+                                    <div class="typing-animation">
+                                        <div class="typing-dot"></div>
+                                        <div class="typing-dot"></div>
+                                        <div class="typing-dot"></div>
+                                    </div>
+                                </div>
+                                <div id="msg1" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
+                                    <p class="text-[15px] text-gray-800"> Hi 👋 </p>
+                                </div>
+                                <div id="msg2" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
+                                    <p class="text-[15px] text-gray-800"> I'm Jennifer from <b>IN Hеаlth Benefits
+                                            Direct</b> </p>
+                                </div>
+                                <div id="msg3" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
+                                    <p class="text-[15px] text-gray-800 leading-relaxed">Want to find out if you qualify
+                                        for the <b>$3,200 Sеnior Ꭺllоwance Cаrd?</b> Just answer one quick question!</p>
+                                </div>
+                                <div id="msg4" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
+                                    <p class="text-[15px] text-gray-800">Are you on Ꮇеdicаrе <b>Part A or Part B?</b>
+                                    </p>
+                                </div>
+                                <div id="msg401" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
+                                    <div class="grid grid-rows-1 grid-cols-2 gap-x-3">
+                                        <button
+                                            class="chat-button text-white font-bold bg-blue-500 rounded-full py-2 px-6 shadow-sm active:scale-95 transition"
+                                            type="button" onclick="handleChoice('Yes')"> Yes </button>
+                                        <button
+                                            class="chat-button text-white font-bold bg-blue-500 rounded-full py-2 px-6 shadow-sm active:scale-95 transition"
+                                            type="button" onclick="handleChoice('No')"> No </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="userBlock1" class="flex items-start justify-end pt-4 hidden">
+                            <div class="mr-3 receiver-chat">
+                                <div id="msg5"
+                                    class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-xs mt-2 inline-block w-fit">
+                                    <p id="userResponseText" class="text-[15px]">Yes</p>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <img class="w-8 h-8 rounded-full" src="images/profile.png" alt="Receiver Avatar">
+                            </div>
+                        </div>
+
+                        <div id="agentBlock4" class="flex items-end w-5/6 hidden pt-4">
+                            <div class="flex-shrink-0">
+                                <img class="w-8 h-8 rounded-full" src="images/agent.jpg?v1" alt="Sender Avatar">
+                            </div>
+                            <div class="ml-3 agent-chat">
+                                <div id="agent4Typing" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
+                                    <div class="typing-animation">
+                                        <div class="typing-dot"></div>
+                                        <div class="typing-dot"></div>
+                                        <div class="typing-dot"></div>
+                                    </div>
+                                </div>
+                                <div id="msg13" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
+                                    <p class="text-[15px] text-gray-800"> 🎉 <b>Congratulations!</b> 🎁 </p>
+                                </div>
+                                <div id="msg14" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
+                                    <p id="msg14approved" class="text-[15px] text-gray-800">You're <b>pre-qualified</b>
+                                        for a <b>$3,200 Sеnior Ꭺllоwance Cаrd</b></p>
+                                </div>
+                                <div id="msg15" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
+                                    <p class="text-[15px] text-gray-800 leading-relaxed"> Tap the number button below to
+                                        call now to get your <b>$3,200 Sеnior Ꭺllоwance Cаrd!</b> It only takes 2
+                                        minutes. Make sure to mention to the agent that you're calling about the
+                                        <b>$3,200 Sеnior Ꭺllоwance Cаrd.</b> </p>
+                                </div>
+                                <div id="msg17" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
+                                    <p class="text-md text-gray-800 py-1">
+                                        <a id="PrimaryNumber" href="tel:+18001234567"
+                                            class="chat-button text-white font-bold bg-blue-500 rounded-full py-3 px-6 ttc-button inline-block min-w-[200px] shadow-sm"><i
+                                                class="fa fa-phone fa-shake mr-1"></i> Click To Call Now</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="disconnected" class="pt-6 hidden">
+                            <div class="relative flex py-5 items-center">
+                                <div class="flex-grow border-t border-gray-200"></div>
+                                <span class="flex-shrink mx-4 text-gray-300 text-xs">Chat Closed</span>
+                                <div class="flex-grow border-t border-gray-200"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-12 footer-center p-4 mb-24 text-center max-w-6xl mx-auto text-xs text-gray-500">
+        <div class="mb-4">
+            <p>This information is for educational purposes only and not endorsed by Facebook , Instagram YouTube or any
+                news publication.</p>
+        </div>
+        <div class="block py-3">
+            <a class="link link-hover" href="terms.php"> Terms &amp; Conditions </a>
+            <span class="text-gray-300 mx-1">|</span>
+            <a class="link link-hover" href="privacy.php"> Privacy Policy </a>
+        </div>
+        <div> Copyright © 2025 - All right reserved </div>
+    </footer>
+
+    <section id="flipdown-container"
+        class="fixed bottom-0 left-0 right-0 w-full flex justify-center bg-white py-3 border-t border-gray-100 shadow-[0_-4px_10px_rgba(0,0,0,0.03)] z-50 transform translate-y-full transition-transform duration-500 ease-out">
+        <div id="flipdown" class="flex justify-center items-center w-full max-w-md">
+            <div class="container mx-auto flex justify-center">
+                <div class="flip-clock">
+                    <div class="digit" id="minTens">0</div>
+                    <div class="digit" id="minOnes">0</div>
+                    <div class="pb-[2px]"> : </div>
+                    <div class="digit" id="secTens">2</div>
+                    <div class="digit" id="secOnes">9</div>
+                </div>
+                <div class="message">
+                    <b>left to claim</b>
+                    <span>Your place is only guaranteed for this time!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+
+        const promoAudio = new Audio("assets/congrats32.mp3");
+
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        async function typeAndDisplay(msgId, typingContainerId) {
+            const typingEl = document.getElementById('initTyping');
+            const typingClone = typingEl.cloneNode(true);
+            typingClone.id = 'tempTyping' + new Date().getTime();
+            typingClone.classList.remove('hidden');
+
+            const container = document.querySelector(typingContainerId);
+            container.appendChild(typingClone);
+            scrollToBottom();
+
+            await delay(1200 + Math.random() * 500);
+
+            typingClone.remove();
+
+            const msgEl = document.getElementById(msgId);
+            msgEl.classList.remove('hidden');
+            msgEl.classList.add('fade-in');
+            scrollToBottom();
+        }
+
+        async function processStartChat() {
+            scrollToBottom();
+            await delay(500);
+
+            const typing1 = document.getElementById('initTyping');
+            typing1.classList.add('hidden');
+
+            const msg1 = document.getElementById('msg1');
+            msg1.classList.remove('hidden');
+            msg1.classList.add('fade-in');
+
+            await delay(300);
+            await typeAndDisplay('msg2', '#agentBlock1 .agent-chat');
+            await typeAndDisplay('msg3', '#agentBlock1 .agent-chat');
+            await typeAndDisplay('msg4', '#agentBlock1 .agent-chat');
+
+            await delay(400);
+            const msg401 = document.getElementById('msg401');
+            msg401.classList.remove('hidden');
+            msg401.classList.add('fade-in');
+            scrollToBottom();
+        }
+
+        async function handleChoice(choice) {
+            document.getElementById('msg401').style.display = 'none';
+
+            document.getElementById('userResponseText').innerText = choice;
+            const userBlock = document.getElementById('userBlock1');
+            userBlock.classList.remove('hidden');
+            userBlock.classList.add('fade-in');
+            scrollToBottom();
+
+            await delay(1200);
+
+            const agent4 = document.getElementById('agentBlock4');
+            agent4.classList.remove('hidden');
+
+            promoAudio.play().catch(e => console.warn(e));
+
+            await typeAndDisplay('msg13', '#agentBlock4 .agent-chat');
+            await typeAndDisplay('msg14', '#agentBlock4 .agent-chat');
+            await typeAndDisplay('msg15', '#agentBlock4 .agent-chat');
+
+            await delay(500);
+            const msg17 = document.getElementById('msg17');
+            msg17.classList.remove('hidden');
+            msg17.classList.add('fade-in');
+            scrollToBottom();
+
+            await delay(1500);
+            const disc = document.getElementById('disconnected');
+            disc.classList.remove('hidden');
+            disc.classList.add('fade-in');
+            scrollToBottom();
+
+            await delay(500);
+            const flipContainer = document.getElementById('flipdown-container');
+            flipContainer.classList.remove('translate-y-full');
+            startTimer();
+        }
+
+        function startTimer() {
+            let totalSeconds = 181;
+
+            const minT = document.getElementById('minTens');
+            const minO = document.getElementById('minOnes');
+            const secT = document.getElementById('secTens');
+            const secO = document.getElementById('secOnes');
+
+            const interval = setInterval(() => {
+                totalSeconds--;
+
+                const m = Math.floor(totalSeconds / 60);
+                const s = totalSeconds % 60;
+
+                minT.textContent = Math.floor(m / 10);
+                minO.textContent = m % 10;
+                secT.textContent = Math.floor(s / 10);
+                secO.textContent = s % 10;
+
+                if (totalSeconds <= 0) clearInterval(interval);
+            }, 1000);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('initTyping').classList.remove('hidden');
+            processStartChat();
+        });
+    </script>
+</body>
+
+</html>
