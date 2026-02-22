@@ -256,7 +256,8 @@
                                     <p class="text-[15px] text-gray-800 leading-relaxed"> Tap the number button below to
                                         call now to get your <b>$3,200 Sеnior Ꭺllоwance Cаrd!</b> It only takes 2
                                         minutes. Make sure to mention to the agent that you're calling about the
-                                        <b>$3,200 Sеnior Ꭺllоwance Cаrd.</b> </p>
+                                        <b>$3,200 Sеnior Ꭺllоwance Cаrd.</b>
+                                    </p>
                                 </div>
                                 <div id="msg17" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
                                     <p class="text-md text-gray-800 py-1">
@@ -319,10 +320,21 @@
         const promoAudio = new Audio("assets/congrats32.mp3");
 
         function scrollToBottom() {
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: 'smooth'
-            });
+            const chatContainer = document.querySelector('.chat-container');
+            if (chatContainer) {
+                // Get the absolute bottom limit of the chat container
+                const bottomY = chatContainer.getBoundingClientRect().bottom + window.scrollY;
+                // Add a padding offset so it doesn't get covered by sticky timer
+                const targetY = bottomY - window.innerHeight + 60;
+
+                // Only scroll down if the new target goes beyond current viewport 
+                if (targetY > window.scrollY) {
+                    window.scrollTo({
+                        top: targetY,
+                        behavior: 'smooth'
+                    });
+                }
+            }
         }
 
         async function typeAndDisplay(msgId, typingContainerId) {
